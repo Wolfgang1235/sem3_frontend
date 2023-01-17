@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import RentalOwners from "./RentalOwners";
 
-const RentalRow = ({ rental, houses, HouseOption }) => {
+const RentalRow = ({ rental, houses, HouseOption, deleteRental }) => {
   const [toggleShowable, setToggleShowable] = useState(true);
   const [toggleEditable, setToggleEditable] = useState(false);
 
@@ -49,6 +49,11 @@ const RentalRow = ({ rental, houses, HouseOption }) => {
             </button>
           </>
         )}
+      </td>
+      <td>
+        <button onClick={(event) => deleteRental(rental.id, event)}>
+          Delete rental
+        </button>
       </td>
     </tr>
   );

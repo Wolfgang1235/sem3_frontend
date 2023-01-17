@@ -58,6 +58,13 @@ const Rentals = () => {
     event.preventDefault();
   };
 
+  const deleteRental = (rentalId, event) => {
+    facade.deleteRental(rentalId, (rentalId) => {
+      setRentals(rentals.filter((rental) => rental.id !== rentalId));
+    });
+    event.preventDefault();
+  };
+
   return (
     <div>
       <h3 style={{ textAlign: "center" }}>Create rental agreement</h3>
@@ -145,6 +152,7 @@ const Rentals = () => {
               houses={houses}
               HouseOption={HouseOption}
               onInputChange={onInputChange}
+              deleteRental={deleteRental}
             />
           ))}
         </tbody>
