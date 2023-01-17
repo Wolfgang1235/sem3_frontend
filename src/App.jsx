@@ -2,13 +2,14 @@ import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Home from "./components/Home";
-import Users from "./components/Users.jsx";
+import Users from "./components/userComponents/Users.jsx";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
 import Profile from "./components/Profile";
 import facade from "./facades/apiFacade";
 import SimpleUsers from "./components/SimpleUsers.jsx";
 import Rentals from "./components/rentalComponents/Rentals";
+import UserRentals from "./components/userComponents/UserRentals";
 
 const App = () => {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -27,6 +28,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="users" element={<Users />} />
         <Route path="rentals" element={<Rentals />} />
+        <Route path="user-rentals" element={<UserRentals />} />
         <Route
           path="contact"
           element={

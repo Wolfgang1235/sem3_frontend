@@ -13,7 +13,7 @@ const RentalOwners = (props) => {
         </thead>
         <tbody>
           <tr>
-            <td>{props.rental}</td>
+            <td>{props.rental.join(", ")}</td>
           </tr>
         </tbody>
       </table>

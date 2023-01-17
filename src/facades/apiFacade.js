@@ -147,6 +147,14 @@ function apiFacade() {
     .then(() => callback(rentalId));
   };
 
+  const getRentalsByUser = async (callback) => {
+    const options = makeOptions("GET", true);
+
+    return await fetch(URL + "users/user-rentals", options)
+    .then(handleHttpErrors)
+    .then((data) => callback(data));
+  };
+
   const fetchData = async () => {
     const options = makeOptions("GET", true);
     const roles = getRoles();
@@ -197,6 +205,7 @@ function apiFacade() {
     getTenants,
     getRentals,
     deleteRental,
+    getRentalsByUser,
   };
 }
 const facade = apiFacade();
