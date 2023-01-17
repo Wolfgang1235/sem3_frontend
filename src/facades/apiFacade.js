@@ -107,16 +107,46 @@ function apiFacade() {
       .then((data) => callback(data));
   };
 
+  const postRental = async (rental, callback) => {
+    const options = makeOptions("POST", true, rental);
+
+    return await fetch(URL + "users/rentals/", options)
+    .then(handleHttpErrors)
+    .then((data) => callback(data));
+  };
+
+  const getTenants = async (callback) => {
+    const options = makeOptions("GET", true);
+
+    return await fetch(URL + "tenants/", options)
+    .then(handleHttpErrors)
+    .then((data) => callback(data));
+  };
+
+  const getHouses = async (callback) => {
+    const options = makeOptions("GET", true);
+
+    return await fetch(URL + "houses/", options)
+    .then(handleHttpErrors)
+    .then((data) => callback(data));
+  };
+
+  const getRentals = async (callback) => {
+    const options = makeOptions("GET", true);
+
+    return await fetch(URL + "rentals/", options)
+    .then(handleHttpErrors)
+    .then((data) => callback(data));
+  };
+
   const fetchData = async () => {
-    const options = makeOptions("GET", true); //True add's the token to the headers doing a check if user is logged in and if the addToken parameter is true, which it is here
+    const options = makeOptions("GET", true);
     const roles = getRoles();
 
-    // then try getting for admin
     if (roles.includes("admin")) {
       return await fetch(URL + "users/me", options).then(handleHttpErrors);
     }
 
-    // try getting for user
     if (roles.includes("user")) {
       return await fetch(URL + "users/me", options).then(handleHttpErrors);
     }
@@ -154,6 +184,10 @@ function apiFacade() {
     deleteUser,
     getRoles,
     getUsers,
+    postRental,
+    getHouses,
+    getTenants,
+    getRentals,
   };
 }
 const facade = apiFacade();

@@ -1,6 +1,5 @@
 import React from "react";
-import { useReducer } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "../styles/header.css";
 import LoggedInNavBar from "./LoggedInNavBar";
 import Login from "./Login";
@@ -9,28 +8,34 @@ function Header({ loggedIn, setErrorMsg, setLoggedIn, roles }) {
   return (
     <nav className="topnav">
       <NavLink className="active" to="/">
-        <i className="fa fa-fw fa-home"></i> Home
+        <i className="fa fa-fw fa-home" /> Home
       </NavLink>
 
-        {loggedIn && roles.includes("admin") && (
-      <NavLink to="/users">
-        <i className="fa fa-fw fa-search"></i> Users
-      </NavLink>
-        )}
+      {loggedIn && roles.includes("admin") && (
+        <NavLink to="/users">
+          <i className="fa fa-fw fa-search" /> Users
+        </NavLink>
+      )}
+
+      {loggedIn && roles.includes("admin") && (
+        <NavLink to="/rentals">
+          <i className="fa fas fa-archive" /> Rentals
+        </NavLink>
+      )}
 
       <NavLink to="/contact">
-        <i className="fa fa-fw fa-envelope"></i> Contact
+        <i className="fa fa-fw fa-envelope" /> Contact
       </NavLink>
 
       {loggedIn && roles.includes("admin") && (
         <NavLink to="/simple-users">
-          <i className="fa fa-fw fa-user"></i>Simple Users
+          <i className="fa fa-fw fa-user" /> Simple Users
         </NavLink>
       )}
 
       {loggedIn && (
         <NavLink to="profile">
-          <i className="fa fa-fw fa-id-badge"></i> Profile
+          <i className="fa fa-fw fa-id-badge" /> Profile
         </NavLink>
       )}
 

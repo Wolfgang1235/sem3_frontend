@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Routes, Route, UNSAFE_RouteContext } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Home from "./components/Home";
 import Users from "./components/Users.jsx";
@@ -8,6 +8,7 @@ import Error from "./components/Error";
 import Profile from "./components/Profile";
 import facade from "./facades/apiFacade";
 import SimpleUsers from "./components/SimpleUsers.jsx";
+import Rentals from "./components/rentalComponents/Rentals";
 
 const App = () => {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -25,14 +26,15 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="users" element={<Users />} />
+        <Route path="rentals" element={<Rentals />} />
         <Route
           path="contact"
           element={
             <Contact
-              name={"Thomas Fritzbøger"}
+              name={"Andreas"}
               address={{
-                street: "Kanalvej 5A",
-                town: "Lyngby",
+                street: "Vejvej 7",
+                town: "Bybyen",
                 country: "Denmark",
               }}
             />
