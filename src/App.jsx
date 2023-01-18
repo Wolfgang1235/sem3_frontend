@@ -10,6 +10,7 @@ import facade from "./facades/apiFacade";
 import SimpleUsers from "./components/SimpleUsers.jsx";
 import Rentals from "./components/rentalComponents/Rentals";
 import UserRentals from "./components/userComponents/UserRentals";
+import Tenants from "./components/Tenants";
 
 const App = () => {
   const [loggedIn, setLoggedIn] = useState(facade.loggedIn);
@@ -27,8 +28,9 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="users" element={<Users />} />
-        <Route path="rentals" element={<Rentals />} />
         <Route path="user-rentals" element={<UserRentals />} />
+        <Route path="tenants" element={<Tenants />} />
+        <Route path="rentals" element={<Rentals />} />
         <Route
           path="contact"
           element={

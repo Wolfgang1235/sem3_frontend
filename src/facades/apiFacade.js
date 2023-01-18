@@ -163,6 +163,14 @@ function apiFacade() {
     .then((data) => callback(data));
   };
 
+  const getTenantsByHouseId = async (houseId, callback) => {
+    const options = makeOptions("GET", true);
+
+    return await fetch(URL + "users/tenants/" + houseId, options)
+    .then(handleHttpErrors)
+    .then((data) => callback(data));
+  }
+
   const fetchData = async () => {
     const options = makeOptions("GET", true);
     const roles = getRoles();
@@ -215,6 +223,7 @@ function apiFacade() {
     putRental,
     deleteRental,
     getRentalsByUser,
+    getTenantsByHouseId,
   };
 }
 const facade = apiFacade();

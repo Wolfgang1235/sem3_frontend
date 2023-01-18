@@ -18,6 +18,12 @@ function Header({ loggedIn, setErrorMsg, setLoggedIn, roles }) {
       )}
 
       {loggedIn && roles.includes("admin") && (
+        <NavLink to="/tenants">
+          <i className="fa fas fa-users" /> Tenants
+        </NavLink>
+      )}
+
+      {loggedIn && roles.includes("admin") && (
         <NavLink to="/rentals">
           <i className="fa fas fa-archive" /> Rentals
         </NavLink>
