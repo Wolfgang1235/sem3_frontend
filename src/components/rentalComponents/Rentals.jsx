@@ -58,6 +58,17 @@ const Rentals = () => {
     event.preventDefault();
   };
 
+  const updateRental = (rental, rentalId, event) => {
+    facade.putRental(rental, rentalId, (rentalFromEndpoint) => {
+      setRentals(
+        rentals.map((rental) =>
+          rental.id !== rentalId ? rental : rentalFromEndpoint
+        )
+      );
+    });
+    event.preventDefault();
+  };
+
   const deleteRental = (rentalId, event) => {
     facade.deleteRental(rentalId, (rentalId) => {
       setRentals(rentals.filter((rental) => rental.id !== rentalId));
@@ -152,6 +163,7 @@ const Rentals = () => {
               houses={houses}
               HouseOption={HouseOption}
               onInputChange={onInputChange}
+              updateRental={updateRental}
               deleteRental={deleteRental}
             />
           ))}

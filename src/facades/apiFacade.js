@@ -139,6 +139,14 @@ function apiFacade() {
     .then((data) => callback(data));
   };
 
+  const putRental = async (rental, rentalId, callback) => {
+    const options = makeOptions("PUT", true, rental);
+
+    return await fetch(URL + "users/rentals/" + rentalId, options)
+    .then(handleHttpErrors)
+    .then((data) => callback(data));
+  };
+
   const deleteRental = async (rentalId, callback) => {
     const options = makeOptions("DELETE", true);
 
@@ -204,6 +212,7 @@ function apiFacade() {
     getHouses,
     getTenants,
     getRentals,
+    putRental,
     deleteRental,
     getRentalsByUser,
   };
