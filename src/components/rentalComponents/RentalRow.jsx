@@ -102,7 +102,7 @@ const RentalRow = ({
             ))}
           </select>
         ) : (
-          (rental.house.address, rental.house.city)
+          rental.house.address + ", " + rental.house.city
         )}
       </td>
       <td>

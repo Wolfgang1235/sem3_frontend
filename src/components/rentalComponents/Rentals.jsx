@@ -83,7 +83,7 @@ const Rentals = () => {
         <input
           id="start_date"
           type="text"
-          placeholder="Start date"
+          placeholder="Start date: dd/mm/yyyy"
           value={rental.start_date}
           onChange={onInputChange}
           required
@@ -91,7 +91,7 @@ const Rentals = () => {
         <input
           id="end_date"
           type="text"
-          placeholder="End date"
+          placeholder="End date: dd/mm/yyyy"
           value={rental.end_date}
           onChange={onInputChange}
           required
@@ -152,7 +152,7 @@ const Rentals = () => {
             <th>Payment annual</th>
             <th>Deposit</th>
             <th>Contact person</th>
-            <th>House</th>
+            <th>House address</th>
           </tr>
         </thead>
         <tbody>

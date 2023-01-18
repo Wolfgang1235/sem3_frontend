@@ -12,7 +12,7 @@ import Rentals from "./components/rentalComponents/Rentals";
 import UserRentals from "./components/userComponents/UserRentals";
 
 const App = () => {
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(facade.loggedIn);
   const [errorMsg, setErrorMsg] = useState("");
 
   return (
